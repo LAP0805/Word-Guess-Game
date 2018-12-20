@@ -71,9 +71,11 @@ function charactersAlreadyPlayed(){
 ////FUNCTION guess correct or not
 function mainGame (){
     correctGuess = false;
+if (rightGuesses.includes(letter)){
+       return console.log("you already played that letter");
+    }
 for(var i = 0; i < randomCharacter.length; i ++){
-    if (randomCharacter[i] === letter){ 
-        
+    if (randomCharacter[i] === letter){   
         rightGuesses.push(letter);
         console.log("correct guesses: " + rightGuesses);
         blankSlate.splice(i,1,letter);
@@ -81,8 +83,6 @@ for(var i = 0; i < randomCharacter.length; i ++){
          correctGuess = true;
     }
 }
-
-
 if (correctGuess === false){
     console.log("wrong");
     wrongGuesses.push(letter);

@@ -29,12 +29,42 @@ var rightGuesses = [];
 var guessesLeft = 5;
 var wins = 0;
 var losses = 0;
+var charactersAlreadyPwnd = [];
 
 
+//FUNCTION reset everything after beating everything
+function endGame(){
+    window.location.reload()
+}
+//END FUNCTION//
+
+//FUNCTION if user beats entire game
+function IsGameOver(){
+    if (answers === undefined || answers.length == 0){
+        alert("you beat the entire game!!! Congratulations!");
+        endGame();
+
+    }
+}
+
+
+//END FUNCTION
+
+//delete aleady played character from answer array//
+function deletePlayedCharacter(){
+var value = randomCharacter
+answers = answers.filter(function(item) { 
+    return item !== value
+})
+console.log(answers)
+}
+
+//END FUNCTION//
 
 //generate random Harry Potter character//
 function generateRandomCharacter (){
 randomCharacter = answers[Math.floor(Math.random()*answers.length)];
+charactersAlreadyPwnd.push(randomCharacter);
 console.log(randomCharacter);
 }
 
@@ -52,7 +82,9 @@ function resetGame(){
     wrongGuesses = [];
     rightGuesses = [];
     guessesLeft = 5;
+    IsGameOver();
     generateRandomCharacter();
+    deletePlayedCharacter();
     charactersAlreadyPlayed();
     blankSlate = [];
     generateBlankSlate();
@@ -63,6 +95,7 @@ function resetGame(){
 
 //FUNCTION to block characters already displayed from being displayed again//
 function charactersAlreadyPlayed(){
+    
     
 }
 

@@ -26,7 +26,7 @@ var answers = ["malfoy",
 var blankSlate = [];
 var wrongGuesses = [];
 var rightGuesses = [];
-var guessesLeft = 5;
+var guessesLeft = 10;
 var wins = 0;
 var losses = 0;
 var charactersAlreadyPwnd = [];
@@ -56,7 +56,6 @@ var value = randomCharacter
 answers = answers.filter(function(item) { 
     return item !== value
 })
-console.log(answers)
 }
 
 //END FUNCTION//
@@ -65,7 +64,6 @@ console.log(answers)
 function generateRandomCharacter (){
 randomCharacter = answers[Math.floor(Math.random()*answers.length)];
 charactersAlreadyPwnd.push(randomCharacter);
-console.log(randomCharacter);
 }
 
 //fill empty array with _'s length of randomCharacter name//
@@ -81,14 +79,28 @@ for(var i = 0; i < randomCharacter.length; i ++){
 function resetGame(){
     wrongGuesses = [];
     rightGuesses = [];
-    guessesLeft = 5;
+    guessesLeft = 10;
     IsGameOver();
     generateRandomCharacter();
     deletePlayedCharacter();
     charactersAlreadyPlayed();
     blankSlate = [];
     generateBlankSlate();
-    console.log(blankSlate);
+    var bS =document.getElementById("wordGoesHere");
+        bS.innerHTML= blankSlate;
+        var tL = document.getElementById("triesLeft");
+        tL.innerHTML= guessesLeft;
+        var w = document.getElementById("wins");
+        w.innerHTML= wins;
+        var l = document.getElementById("losses");
+        l.innerHTML= losses;
+        var cL= document.getElementById("rightGuesses");
+        cL.innerHTML= rightGuesses;
+        var wL =document.getElementById("wrongGuesses");
+        wL.innerHTML = wrongGuesses;
+        var wwL = document.getElementById("winLose");
+wwL.innerHTML= "Guess a letter!";
+    
 
 }
 //END FUNCTION
@@ -105,35 +117,42 @@ function charactersAlreadyPlayed(){
 function mainGame (){
     correctGuess = false;
 if (rightGuesses.includes(letter)){
-       return console.log("you already played that letter");
+       return alert("you already played that letter");
     }
+if (wrongGuesses.includes(letter)){
+    return alert("you already played that letter");
+}
 for(var i = 0; i < randomCharacter.length; i ++){
     if (randomCharacter[i] === letter){   
         rightGuesses.push(letter);
-        console.log("correct guesses: " + rightGuesses);
+        var cL= document.getElementById("rightGuesses");
+        cL.innerHTML= rightGuesses;
         blankSlate.splice(i,1,letter);
-        console.log(blankSlate);
+        var bS =document.getElementById("wordGoesHere");
+        bS.innerHTML= blankSlate;
          correctGuess = true;
     }
 }
 if (correctGuess === false){
-    console.log("wrong");
     wrongGuesses.push(letter);
     guessesLeft --;
-    console.log("wrong guesses: " + wrongGuesses + " Guesses left: " + guessesLeft);
+    var wL =document.getElementById("wrongGuesses");
+wL.innerHTML = wrongGuesses;
+    var tL = document.getElementById("triesLeft");
+tL.innerHTML= guessesLeft;
 }
 if (rightGuesses.length === randomCharacter.length){
     wins ++;
-    console.log("you win!");
-    console.log("wins: " + wins + " losses: " + losses);
-    console.log("_______________________");
+    var w = document.getElementById("wins");
+w.innerHTML= wins;
+var wwL = document.getElementById("winLose");
+wwL.innerHTML= "Huzzah! you won!";
     resetGame();
 } 
 if (guessesLeft === 0){
     losses ++;
-    console.log("you lose!");
-    console.log("wins: " + wins + " losses: " + losses);
-    console.log("_______________________");
+    var l = document.getElementById("losses");
+l.innerHTML= losses;
     resetGame();
     
 }
@@ -152,4 +171,18 @@ document.onkeyup = function myGame (event){
 
 //END FUNCTION//
 
+var bS =document.getElementById("wordGoesHere");
+bS.innerHTML= blankSlate;
+var tL = document.getElementById("triesLeft");
+tL.innerHTML= guessesLeft;
+var w = document.getElementById("wins");
+w.innerHTML= wins;
+var l = document.getElementById("losses");
+l.innerHTML= losses;
+var cL= document.getElementById("rightGuesses");
+cL.innerHTML= rightGuesses;
+var wL =document.getElementById("wrongGuesses");
+wL.innerHTML = wrongGuesses;
+var wwL = document.getElementById("winLose");
+wwL.innerHTML= "Guess a letter!";
 

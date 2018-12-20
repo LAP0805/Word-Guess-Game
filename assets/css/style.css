@@ -29,4 +29,6 @@ h1 {
     font-size: 20px;
     font-family: 'Fontdiner Swanky', cursive;
 }
+#winLose {
+    margin: 20px;
 }

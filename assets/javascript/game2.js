@@ -90,7 +90,7 @@ function resetGame(){
     blankSlate = [];
     generateBlankSlate();
     var bS =document.getElementById("wordGoesHere");
-        bS.innerHTML= blankSlate;
+        bS.innerHTML= blankSlate.join(" ");
         var tL = document.getElementById("triesLeft");
         tL.innerHTML= guessesLeft;
         var w = document.getElementById("wins");
@@ -122,6 +122,11 @@ setTimeout(function(){
 
 function mainGame (){
     correctGuess = false;
+if (event.keyCode < 65 || event.keyCode > 90){
+    return
+} 
+else {
+ 
 if (rightGuesses.includes(letter)){
        return alreadyGuessed();
 }
@@ -132,12 +137,12 @@ for(var i = 0; i < randomCharacter.length; i ++){
     if (randomCharacter[i] === letter){   
         rightGuesses.push(letter);
         var cL= document.getElementById("rightGuesses");
-        cL.innerHTML= rightGuesses;
+        cL.innerHTML= rightGuesses.join(" ");
         blankSlate.splice(i,1,letter);
         console.log(blankSlate);
         console.log( "right guesses: " + rightGuesses);
         var bS =document.getElementById("wordGoesHere");
-        bS.innerHTML= blankSlate;
+        bS.innerHTML= blankSlate.join(" ");
          correctGuess = true;
     }
 }
@@ -147,7 +152,7 @@ if (correctGuess === false){
     console.log("wrong guesses: " + wrongGuesses);
     console.log("guesses left: " + guessesLeft);
     var wL =document.getElementById("wrongGuesses");
-wL.innerHTML = wrongGuesses;
+wL.innerHTML = wrongGuesses.join(" ");
     var tL = document.getElementById("triesLeft");
 tL.innerHTML= guessesLeft;
 }
@@ -178,14 +183,12 @@ wwL.innerHTML= "You lost!";
 l.innerHTML= losses;
 
     
-    
+}   
 }
 }
 //END FUNCTION
 
 resetGame();
-
-
 
 ///actual game///
 document.onkeyup = function myGame (event){
@@ -197,18 +200,11 @@ document.onkeyup = function myGame (event){
 
 //END FUNCTION//
 
-var bS =document.getElementById("wordGoesHere");
-bS.innerHTML= blankSlate;
-var tL = document.getElementById("triesLeft");
-tL.innerHTML= guessesLeft;
-var w = document.getElementById("wins");
-w.innerHTML= wins;
-var l = document.getElementById("losses");
-l.innerHTML= losses;
-var cL= document.getElementById("rightGuesses");
-cL.innerHTML= rightGuesses;
-var wL =document.getElementById("wrongGuesses");
-wL.innerHTML = wrongGuesses;
+
 var wwL = document.getElementById("winLose");
 wwL.innerHTML= "Guess a letter!";
+
+
+
+
 

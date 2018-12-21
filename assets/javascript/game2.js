@@ -92,7 +92,7 @@ function resetGame(){
         var wL =document.getElementById("wrongGuesses");
         wL.innerHTML = wrongGuesses;
         var wwL = document.getElementById("winLose");
-wwL.innerHTML= "Guess a letter!";
+        wwL.innerHTML= "Guess a letter!";
 }
 //END FUNCTION
 
@@ -177,21 +177,17 @@ l.innerHTML= losses;
 
 
 
-///actual game///
+
+
+
+resetGame();
+
+///FUNCTION listen for user input///
 document.onkeyup = function myGame (event){
-         letter = event.key;
-         mainGame();
-         
-
-    }
-
+    letter = event.key.toLowerCase();   
+    mainGame();
+}
 //END FUNCTION//
-
-
-var wwL = document.getElementById("winLose");
-wwL.innerHTML= "Guess a letter!";
-
-
 
 
 

@@ -33,3 +33,18 @@ h1 {
 #winLose {
     margin: 20px;
 }
+#star{
+    height:300px;
+    width:300px;
+}
+#howToWin{
+    position:absolute;
+    bottom: 100px;
+}
+#howToWinInner {
+    position:absolute;
+    font-family:'Fontdiner Swanky', cursive;
+    font-size: 15px;
+    bottom: 80px;
+    padding: 50px;
+}

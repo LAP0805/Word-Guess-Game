@@ -13,6 +13,7 @@ h1 {
     text-align: center;
 }
 #mainDiv {
+    position: relative;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     margin: -150px 0px 0px 0px;

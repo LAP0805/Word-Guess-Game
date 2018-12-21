@@ -42,7 +42,8 @@ function endGame(){
 function IsGameOver(){
     if (answers === undefined || answers.length == 0){
         alert("You have reached the end of the game! Congratulations!");
-        endGame();
+        setTimeout(endGame, 1000);
+    
 
     }
 }
@@ -142,6 +143,7 @@ if (rightGuesses.length === randomCharacter.length){
     wins ++;
     deletePlayedCharacter();
     console.log("characters already played: " + charactersAlreadyPwnd);
+    
     console.log("you win!");
     console.log("wins: " + wins);
     console.log("___________");
@@ -149,22 +151,29 @@ if (rightGuesses.length === randomCharacter.length){
 w.innerHTML= wins;
 var wwL = document.getElementById("winLose");
 wwL.innerHTML= "Huzzah! you won!";
-    resetGame();
+setTimeout(resetGame, 1000);
+    
 } 
 if (guessesLeft === 0){
     losses ++;
+    setTimeout(resetGame, 1000);
+    var wwL = document.getElementById("winLose");
+wwL.innerHTML= "You lost!";
     console.log("you lose!");
     console.log("losses: " + losses);
     console.log("_____________");
     var l = document.getElementById("losses");
 l.innerHTML= losses;
-    resetGame();
+
+    
     
 }
 }
 //END FUNCTION
 
 resetGame();
+
+
 
 ///actual game///
 document.onkeyup = function myGame (event){

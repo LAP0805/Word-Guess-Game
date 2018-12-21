@@ -18,6 +18,15 @@ h1 {
     text-align: center;
     margin: -150px 0px 0px 0px;
     color: #1b1919;
+}   
+#startDiv {
+    position: absolute;
+    font-family: 'Fontdiner Swanky', cursive;
+    text-align: center;
+    color: #1b1919;
+    font-size: 30px;
+    right:600px;
+
     
 }
 #title {
@@ -47,4 +56,11 @@ h1 {
     font-size: 15px;
     bottom: 80px;
     padding: 50px;
+}
+
+.visible {
+    display:block;
+}
+.hide {
+    display:none;
 }

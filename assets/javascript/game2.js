@@ -1,12 +1,22 @@
 
+var game = document.getElementById("gameInfo");
+game.setAttribute("class", "hide");
+
+//FUNCTION start page//
+document.onkeyup = function myGame (event){
+  letter = event.key.toLowerCase();   
+var game = document.getElementById("gameInfo");
+game.setAttribute("class", "visible");
+var game = document.getElementById("startDiv");
+ game.setAttribute("class", "hide");
 
 
 var answers = ["malfoy",
-                "snape",
+                "weasley",
                 "hagrid",
                 "luna",
                 "umbridge",
-                "slughorn",
+                "quirrell",
                 "dumbledore",
                 "voldemort",
                 "bellatrix",
@@ -15,11 +25,11 @@ var answers = ["malfoy",
                 "pettigrew",
                 "severus",
                 "mcgonagall",
-                "nymphadora",
+                "lupin",
                 "trelawney",
-                "grindelwald",
-                "neville",
-                "lucius",
+                "dobby",
+                "hedwig",
+                "sirius",
                 "hermione"];
 
 
@@ -175,21 +185,13 @@ l.innerHTML= losses;
 }
 //END FUNCTION
 
-
-
-
-
-
-resetGame();
-
 ///FUNCTION listen for user input///
-document.onkeyup = function myGame (event){
+document.onkeyup = function Game1 (event){
     letter = event.key.toLowerCase();   
     mainGame();
 }
 //END FUNCTION//
 
+resetGame();
 
-
-
-  
+}

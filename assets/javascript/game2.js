@@ -32,53 +32,43 @@ var losses = 0;
 var charactersAlreadyPwnd = [];
 
 
-//FUNCTION reset everything after beating all characters
-function endGame(){
-    window.location.reload()
-}
-//END FUNCTION//
 
 //FUNCTION if user beats entire game
 function IsGameOver(){
     if (answers === undefined || answers.length == 0){
         var wwL = document.getElementById("winLose");
-        wwL.innerHTML= "You reached the end of the game!";
-       setTimeout(endGame, 2000);
-    
-
+        wwL.innerHTML= "Congratulations! You beat the game!";
+        document.getElementById("wingame").play();
     }
 }
-
-
 //END FUNCTION
 
-//delete aleady played character from answer array//
+//FUNCTION delete aleady played character from answer array//
 function deletePlayedCharacter(){
 var value = randomCharacter
 answers = answers.filter(function(item) { 
     return item !== value
 })
 }
-
 //END FUNCTION//
 
-//generate random Harry Potter character//
+//FUNCTION generate random Harry Potter character//
 function generateRandomCharacter (){
 randomCharacter = answers[Math.floor(Math.random()*answers.length)];
 charactersAlreadyPwnd.push(randomCharacter);
 console.log(randomCharacter);
 }
+//END FUNCTION
 
-//fill empty array with _'s length of randomCharacter name//
+// FUNCTION fill empty array with _'s length of randomCharacter name//
 function generateBlankSlate(){
 for(var i = 0; i < randomCharacter.length; i ++){
        for(var j = 0; j < randomCharacter[i].length; j ++){
            blankSlate.push(" _");
-           
        }
-       
 }console.log(blankSlate);
 }
+//END FUNCTION
 
 //FUNCTION reset game
 function resetGame(){
@@ -103,8 +93,6 @@ function resetGame(){
         wL.innerHTML = wrongGuesses;
         var wwL = document.getElementById("winLose");
 wwL.innerHTML= "Guess a letter!";
-    
-
 }
 //END FUNCTION
 
@@ -119,7 +107,6 @@ setTimeout(function(){
 ///END FUNCTION
 
 ////FUNCTION guess correct or not
-
 function mainGame (){
     correctGuess = false;
 if (event.keyCode < 65 || event.keyCode > 90){
@@ -158,6 +145,7 @@ tL.innerHTML= guessesLeft;
 }
 if (rightGuesses.length === randomCharacter.length){
     wins ++;
+    document.getElementById("win").play();
     deletePlayedCharacter();
     console.log("characters already played: " + charactersAlreadyPwnd);
     
@@ -172,6 +160,7 @@ setTimeout(resetGame, 2000);
     
 } 
 if (guessesLeft === 0){
+    document.getElementById("lose").play();
     losses ++;
     setTimeout(resetGame, 2000);
     var wwL = document.getElementById("winLose");
@@ -180,15 +169,13 @@ wwL.innerHTML= "You lost!";
     console.log("losses: " + losses);
     console.log("_____________");
     var l = document.getElementById("losses");
-l.innerHTML= losses;
-
-    
+l.innerHTML= losses;   
 }   
 }
 }
 //END FUNCTION
 
-resetGame();
+
 
 ///actual game///
 document.onkeyup = function myGame (event){
@@ -208,3 +195,5 @@ wwL.innerHTML= "Guess a letter!";
 
 
 
+
+  

@@ -32,7 +32,7 @@ var losses = 0;
 var charactersAlreadyPwnd = [];
 
 
-//FUNCTION reset everything after beating everything
+//FUNCTION reset everything after beating all characters
 function endGame(){
     window.location.reload()
 }
@@ -41,8 +41,9 @@ function endGame(){
 //FUNCTION if user beats entire game
 function IsGameOver(){
     if (answers === undefined || answers.length == 0){
-        alert("You have reached the end of the game! Congratulations!");
-        setTimeout(endGame, 1000);
+        var wwL = document.getElementById("winLose");
+        wwL.innerHTML= "You reached the end of the game!";
+       setTimeout(endGame, 2000);
     
 
     }
@@ -107,14 +108,25 @@ wwL.innerHTML= "Guess a letter!";
 }
 //END FUNCTION
 
+//FUNCTION letter already guessed
+function alreadyGuessed(){
+    var wwL = document.getElementById("winLose");
+wwL.innerHTML= "You already played that letter!";
+setTimeout(function(){
+    document.getElementById("winLose").innerHTML ="Guess a letter!";
+}, 1500);
+}
+///END FUNCTION
+
 ////FUNCTION guess correct or not
+
 function mainGame (){
     correctGuess = false;
 if (rightGuesses.includes(letter)){
-       return alert("you already played that letter");
-    }
+       return alreadyGuessed();
+}
 if (wrongGuesses.includes(letter)){
-    return alert("you already played that letter");
+    return alreadyGuessed();
 }
 for(var i = 0; i < randomCharacter.length; i ++){
     if (randomCharacter[i] === letter){   
@@ -150,13 +162,13 @@ if (rightGuesses.length === randomCharacter.length){
     var w = document.getElementById("wins");
 w.innerHTML= wins;
 var wwL = document.getElementById("winLose");
-wwL.innerHTML= "Huzzah! you won!";
-setTimeout(resetGame, 1000);
+wwL.innerHTML= "Huzzah! You got it!";
+setTimeout(resetGame, 2000);
     
 } 
 if (guessesLeft === 0){
     losses ++;
-    setTimeout(resetGame, 1000);
+    setTimeout(resetGame, 2000);
     var wwL = document.getElementById("winLose");
 wwL.innerHTML= "You lost!";
     console.log("you lose!");

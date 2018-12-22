@@ -14,7 +14,7 @@ var game = document.getElementById("startDiv");
 var answers = ["malfoy",
                 "weasley",
                 "hagrid",
-                "luna",
+                "harry",
                 "umbridge",
                 "quirrell",
                 "dumbledore",
@@ -120,8 +120,8 @@ setTimeout(function(){
 function mainGame (){
     correctGuess = false;
 if (event.keyCode < 65 || event.keyCode > 90){
-    return
-} 
+    return correctGuess = false;
+}
 else {
  
 if (rightGuesses.includes(letter)){
@@ -187,8 +187,9 @@ l.innerHTML= losses;
 
 ///FUNCTION listen for user input///
 document.onkeyup = function Game1 (event){
+    if(event.keyCode > 64 && event.keyCode < 91){
     letter = event.key.toLowerCase();   
-    mainGame();
+    mainGame();}
 }
 //END FUNCTION//
 

@@ -1,9 +1,10 @@
 
 body {
-    margin:auto;
+    margin:auto ;
     background: url("../images/background2.jpg");
     background-repeat:no-repeat;
-    background-size: cover;
+    background-size: auto;
+
     
 
 }

@@ -1,9 +1,11 @@
 
 body {
     margin:auto;
-    background-image: url("../images/background2.jpg");
+    background: url("../images/background2.jpg");
     background-repeat:no-repeat;
-    background-color: #444753;
+    background-size: cover;
+    
+
 }
 header{
     text-align:center;

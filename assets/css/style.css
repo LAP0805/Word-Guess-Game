@@ -2,6 +2,8 @@
 body {
     margin:auto;
     background-image: url("../images/background2.jpg");
+    background-repeat:no-repeat;
+    background-color: #444753;
 }
 header{
     text-align:center;
@@ -23,25 +25,29 @@ h1 {
     color: #1b1919;
 }   
 #startDiv {
-    position: absolute;
+    
     font-family: 'Fontdiner Swanky', cursive;
     text-align: center;
     color: #1b1919;
     font-size: 30px;
-    right:600px;
-    margin: 50px 0px 0px 0px;
+    
+    margin: 20px 0px 0px 0px;
 
     
 }
 #title {
+    position: relative;
     font-size: 60px;
     font-family: 'Fontdiner Swanky', cursive;
+    text-align: center;
+    margin: -70px 0px 0px 0px;
 }
 #gameInfo{
-    margin: 40px;
+    margin: 50px;
     text-align:center;
     font-size: 20px;
     font-family: 'Fontdiner Swanky', cursive;
+    line-height: 75%;
 }
 #winLose {
     margin: 20px;
@@ -52,13 +58,13 @@ h1 {
 }
 #howToWin{
     position:absolute;
-    bottom: 100px;
+    bottom: 70px;
 }
 #howToWinInner {
     position:absolute;
     font-family:'Fontdiner Swanky', cursive;
     font-size: 15px;
-    bottom: 80px;
+    bottom: 60px;
     padding: 50px;
 }
 
@@ -67,4 +73,76 @@ h1 {
 }
 .hide {
     display:none;
+}
+@media screen and (max-width: 1438px){
+    #howToWin{
+        top: 100px;
+       
+    }
+    #howToWinInner {
+        top: 70px;
+    }
+    }
+@media screen and (max-width: 965px){
+   #potter{
+       height: 400px;;
+       width: 100vw;
+   }
+   #howToWin{
+    top: 150px;
+   
+}
+#howToWinInner {
+    top: 70px;
+}
+
+}
+@media screen and (max-width:830px){
+    #star{
+        height:200px;
+        width:200px;
+    }
+    #howToWin{
+        top: 250px;
+    }
+    #howToWinInner {
+        top: 30px;
+        font-size: 10px;
+    }
+
+}
+
+@media screen and (max-width:640px){
+    #potter {
+        height: 50vw;
+        width:100vw;
+        margin: -20px;
+    }
+    #title{
+        font-size:30px;
+        margin: -10px;
+        
+    }
+    #startDiv {
+        font-size: 20px;
+    }
+    #gameInfo {
+      margin: 60px 0px 0px 0px;
+      font-size: 15px;
+      line-height: 50%;
+    }
+    #howToWin{
+        right: 20px;
+        top:200px;
+    }
+    #star{
+        height:100px;
+        width:100px;
+    }
+    #howToWinInner {
+        top: 15px;
+        font-size: 8px;
+        padding: 20px;
+    }
+
 }

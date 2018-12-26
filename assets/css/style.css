@@ -1,11 +1,12 @@
-
+html {
+    min-height:100%;
+}
 body {
+    min-height:100%;
     margin:auto ;
     background: url("../images/background2.jpg");
     background-repeat:no-repeat;
-    background-size: auto;
-
-    
+    background-size: cover;
 
 }
 header{
